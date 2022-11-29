@@ -1,6 +1,6 @@
 <?php 
-include_once(" connection. php" ); 
-$stmt - $conn->prepare("DROP TABLE IF EXISTS QuizTab1e; 
+include_once("connection.php" ); 
+$stmt = $conn->prepare("DROP TABLE IF EXISTS QuizTab1e; 
 CREATE TABLE QuizTable 
 (QuizID INT(8) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 QuizName VARCHAR(20) NOT NULL, 
@@ -32,7 +32,7 @@ $stmt = $conn->prepare("DROP TABLE IF EXISTS UsersTable;
 CREATE TABLE UsersTable 
 (UserID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 Name VARCHAR(20) NOT NULL, 
-Teacher/Student BOOLEAN, 
+TeacherOrStudent BOOLEAN, 
 Email VARCHAR(20) NOT NULL, 
 Password VARCHAR(20) NOT NULL, 
 LoggedIn BOOLEAN, 
@@ -42,7 +42,7 @@ $stmt->closeCursor();
 
 $stmt = $conn->prepare ("DROP TABLE IF EXISTS SchoolTable; 
 CREATE TABLE SchoolTable 
-(SchoolID INT(5) UNSIGNED AUTO_INCRENENT PRIMARY KEY, 
+(SchoolID INT(5) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 SchoolName VARCHAR(20))"); 
 $stmt-execute(); 
 $stmt-closeCursor();

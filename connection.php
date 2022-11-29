@@ -1,5 +1,5 @@
 <?php
-array_map("htmlspecialchars", $_POST);
+//array_map("htmlspecialchars", $_POST);
 $servername = "localhost";
 $username = "root";
 $password = "";
