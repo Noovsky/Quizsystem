@@ -1,5 +1,5 @@
 <?php 
-include_once("connection.php" ); 
+include_once("connection.php"); 
 $stmt = $conn->prepare("DROP TABLE IF EXISTS QuizTab1e; 
 CREATE TABLE QuizTable 
 (QuizID INT(8) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
@@ -40,10 +40,10 @@ SchoolID INT(5) NOT NULL)");
 $stmt->execute(); 
 $stmt->closeCursor();
 
-$stmt = $conn->prepare ("DROP TABLE IF EXISTS SchoolTable; 
+$stmt = $conn->prepare("DROP TABLE IF EXISTS SchoolTable; 
 CREATE TABLE SchoolTable 
 (SchoolID INT(5) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-SchoolName VARCHAR(20))"); 
+SchoolName VARCHAR(20)"); 
 $stmt-execute(); 
 $stmt-closeCursor();
 
