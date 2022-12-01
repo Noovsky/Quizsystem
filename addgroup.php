@@ -17,4 +17,12 @@ VALUES (null,:Gn,:uid,:PrivateCode,:PrivateOrPublic)");
 $stmt->bindParam(":uid", $loggedin);
 $stmt->bindParam(":PrivateCode", $_POST["passwd"]);
 $stmt->bindParam(":Gn", $_POST["GroupName"]);
+$stmt->bindParam(":PrivateOrPublic", $role);
+$stmt->execute();
 }
+catch(PDOException $e)
+{
+    echo "error".$e->getMessage();
+}
+$conn=null 
+?>
