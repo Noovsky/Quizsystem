@@ -1,3 +1,16 @@
+<?php
+session_start();
+
+//$SESSION["quno"]=$_POST["NumberOfQuestions"];
+print_r($_SESSION["quno"]);
+/* include_once("connection.php");
+$stmt = $conn->prepare("SELECT * FROM QuizQuestions");
+$stmt->execute();
+while($row = $stmt->fetch(PDO::FETCH_ASSOC))
+{
+echo($row["QQ"]."<br>");
+} */
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,14 +35,6 @@
 
     <input type="submit" value="Submit the Question">
 </form>
-<?php
-include_once("connection.php");
-$stmt = $conn->prepare("SELECT * FROM QuizQuestions");
-$stmt->execute();
-while($row = $stmt->fetch(PDO::FETCH_ASSOC))
-{
-echo($row["QQ"]."<br>");
-}
-?>
+
 </body>
 </html>

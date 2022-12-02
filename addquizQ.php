@@ -1,18 +1,18 @@
 <?php
 session_start();
 
-if ($SESSION["quno"]==1){
+if ($_SESSION["quno"]==1){
     header("Location: Users.php");
 }else{
     header("Location: quizzesQ.php");
-}
+} 
 
 include_once("connection.php");
 $stmt =$conn->prepare("SELECT MAX(QuizID) as qid FROM quiztable");
 $stmt->execute();
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
 {
-$quiz=$row[qid];
+$quiz=$row['qid'];
 }
 
 try{
@@ -25,7 +25,7 @@ print_r($_POST);
 $stmt =$conn->prepare("INSERT INTO
 QuizQuestions (QuestionID,QuizID,Question,Answer1,Answer2,Answer3,Answer4,AnswerCorrect)
 VALUES
-(null,:qid,:QzN,:Answer1,;Answer2,:Answer3,:Answer4,:CorrectAns)");
+(null,:qid,:QzN,:Answer1,:Answer2,:Answer3,:Answer4,:CorrectAns)");
 
 $stmt->bindParam(":qid", $quiz);
 $stmt->bindParam(":QzN", $_POST["QQ"]);
@@ -36,7 +36,7 @@ $stmt->bindParam(":Answer4", $_POST["A4"]);
 $stmt->bindParam(":CorrectAns", $_POST["CA"]);
 $stmt->execute();
 $_SESSION["quno"]-=1;
-
+print_r($_SESSION);
 }
 catch(PDOException $e)
 {

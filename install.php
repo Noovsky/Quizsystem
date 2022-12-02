@@ -9,6 +9,7 @@ PrivatePublic INT(1),
 NumberOfQ INT(3) NOT NULL,
 DateCreated date,
 Visitors INT(5),
+PrivatePasswd VARCHAR(20),
 QuizTopic VARCHAR(20))");
 $stmt->execute();
 $stmt->closeCursor();
@@ -36,7 +37,7 @@ TeacherOrStudent BOOLEAN,
 Email VARCHAR(20) NOT NULL,
 Password VARCHAR(20) NOT NULL,
 LoggedIN BOOLEAN,
-SchoolID INT(5) NOT NULL)");
+SchoolID INT(5))");
 $stmt->execute();
 $stmt->closeCursor();
 

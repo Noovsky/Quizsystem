@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-$SESSION["quno"]=$_POST["NumberOfQuestions"];
-
+$_SESSION["quno"]=$_POST["NumberOfQuestions"];
+print_r($_SESSION);
 try{
 array_map("htmlspecialchars", $_POST);
 header("Location: quizzesQ.php");
@@ -42,5 +42,7 @@ catch(PDOException $e)
 {
     echo "error".$e->getMessage();
 }
-$conn=null
+
+$conn=null;
+print_r($_SESSION);
 ?>

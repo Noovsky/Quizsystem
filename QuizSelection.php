@@ -15,7 +15,7 @@ $stmt->execute();
 
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
 {
-    echo("<option value="$row["QuizID"].">".$row["DateCreated"]."</option>");
+    echo("<option value=".$row["QuizID"].">".$row["DateCreated"]."</option>");
 }
 ?>
 </select>
