@@ -9,7 +9,7 @@ PrivatePublic INT(1),
 NumberOfQ INT(3) NOT NULL,
 DateCreated date,
 Visitors INT(5),
-PrivatePasswd VARCHAR(20),
+PrivatePasswd VARCHAR(200),
 QuizTopic VARCHAR(20))");
 $stmt->execute();
 $stmt->closeCursor();
@@ -35,7 +35,7 @@ CREATE TABLE UsersTable
 Name VARCHAR(20) NOT NULL,
 TeacherOrStudent BOOLEAN,
 Email VARCHAR(20) NOT NULL,
-Password VARCHAR(20) NOT NULL,
+Password VARCHAR(200) NOT NULL,
 LoggedIN BOOLEAN,
 SchoolID INT(5))");
 $stmt->execute();

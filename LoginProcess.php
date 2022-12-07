@@ -8,11 +8,16 @@ $stmt->bindParam(":username", $_POST["Name"]);
 $stmt->execute();
 //if no results from query, go back...
 
+
+
 if ($stmt->rowCount() > 0) {
   
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
 {
-    if($row["Password"]== $_POST["Pword"]){
+    $hashed = $row["Password"];
+    $attempt = $_POST["Pword"];
+    if(password_verify($attempt,$hashed)){
+        
         header("Location: QuizSelection.php");
         echo("yes");
     }else{

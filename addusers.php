@@ -12,13 +12,14 @@ switch($_POST["role"]){
         $role=1;
         break;
 }
+$hashed_password = password_hash($_POST["passwd"], PASSWORD_DEFAULT);
 echo($role);
 $stmt = $conn->prepare("INSERT INTO UsersTable (UserID,Name,Email,Password,TeacherOrStudent,SchoolID)
 VALUES(null,:Username,:email,:password,:role,:school)");
 
 $stmt->bindParam(':Username',$_POST["Username"]);
 $stmt->bindParam(':email',$_POST["email"]);
-$stmt->bindParam(':password', $_POST["passwd"]);
+$stmt->bindParam(':password', $hashed_password);
 $stmt->bindParam(':role', $role);
 $stmt->bindParam(":school", $_POST["schoolid"]);
 $stmt->execute();
