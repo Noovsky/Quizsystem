@@ -21,7 +21,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
         $_SESSION["LoggedInUser"]=$row["UserID"];
         $_SESSION["LoggedInName"]=$row["Name"];
         if (!isset($_SESSION['backURL'])){
-            $backURL= "users.php"; //Sets a default destination if no BackURL set (parent dir)
+            $backURL= "guestpage.php"; //Sets a default destination if no BackURL set (parent dir)
         }else{
             $backURL=$_SESSION['backURL'];
         }#
