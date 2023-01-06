@@ -1,3 +1,12 @@
+<?php
+session_start(); 
+if (!isset($_SESSION['LoggedInName']))
+{   
+    $_SESSION['backURL'] = $_SERVER['REQUEST_URI'];
+    header("Location:login.php");
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +25,8 @@
     <input type="password" name="passwd"><br>
     <input type="submit" value="Create Quiz">
 </form>
-<?php
+
+<?php 
 include_once("connection.php");
 $stmt =$conn->prepare("SELECT * FROM QuizTable");
 $stmt->execute();

@@ -1,4 +1,6 @@
 <?php
+session_start(); 
+
 try{
 array_map("htmlspecialchars", $_POST);
 header("Location: groups.php");

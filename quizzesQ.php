@@ -1,6 +1,10 @@
 <?php
-session_start();
-
+session_start(); 
+if (!isset($_SESSION['LoggedInName']))
+{   
+    $_SESSION['backURL'] = $_SERVER['REQUEST_URI'];
+    header("Location:login.php");
+}
 //$SESSION["quno"]=$_POST["NumberOfQuestions"];
 print_r($_SESSION["quno"]);
 /* include_once("connection.php");

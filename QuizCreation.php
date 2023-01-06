@@ -1,5 +1,6 @@
 <?php
-session_start();
+session_start(); 
+
 
 $_SESSION["quno"]=$_POST["NumberOfQuestions"];
 print_r($_SESSION);

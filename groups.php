@@ -1,3 +1,10 @@
+<?php
+session_start(); 
+if (!isset($_SESSION['LoggedInName']))
+{   
+    header("Location:login.php");
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +20,7 @@
     <input type="password" name="PriavteCode">
     <input type="submit" value="Create Quiz">
 </form>
+
 <?php
 include_once("connection.php");
 $stmt = $conn->prepare("SELECT * FROM GroupTable");

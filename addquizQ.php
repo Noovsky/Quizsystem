@@ -1,5 +1,6 @@
 <?php
-session_start();
+session_start(); 
+
 
 if ($_SESSION["quno"]==1){
     header("Location: Users.php");
