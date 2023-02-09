@@ -14,7 +14,7 @@ if (!isset($_SESSION['LoggedInName']))
 
 </head>
 <body>
-<form action="quiznext.php" method = "post">
+<form action="quizzesS.php" method = "post">
 <select name = "quizid">
 <?php
 include_once("connection.php");
