@@ -6,6 +6,8 @@ if (!isset($_SESSION['LoggedInName']))
     header("Location:login.php");
 }
 print_r($_POST['quizid']);
+
+$_SESSION["CurrentQuiz"]=$_POST["quizid"];
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,7 +17,7 @@ print_r($_POST['quizid']);
 
 </head>
 <body>
-<form action="" method ="post">
+<form action="QuizResults.php" method ="POST">
     The Question<br>
     <br>
     <?php
@@ -27,13 +29,15 @@ $stmt->execute();
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
 {
     echo($row["Question"]."<br>");
-    echo( "Choose answer 1 ".$row["Answer1"]."<input type='submit' value='Answer1'><br>");
-    echo( "Choose answer 2 ".$row["Answer2"]."<input type='submit' value='Answer2'><br>");
-    echo( "Choose answer 3 ".$row["Answer3"]."<input type='submit' value='Answer3'><br>");
-    echo( "Choose answer 4 ".$row["Answer4"]."<input type='submit' value='Answer4'><br>");
+    
     echo($row["AnswerCorrect"]."<br>");
-
-
+    echo("<input type='radio' id=".$row["Question"]." name=".$row["Question"]." value=1>".$row["Answer1"]."<br>");
+    echo("<input type='radio' id=".$row["Question"]." name=".$row["Question"]." value=2>".$row["Answer2"]."<br>");
+    echo("<input type='radio' id=".$row["Question"]." name=".$row["Question"]." value=3>".$row["Answer3"]."<br>");
+    echo("<input type='radio' id=".$row["Question"]." name=".$row["Question"]." value=4>".$row["Answer4"]."<br>");
+    
+    
+    
 }
 ?>
 <input type="submit" value="NEXT">
