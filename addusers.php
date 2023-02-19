@@ -1,4 +1,5 @@
 <?php
+session_start(); 
 try{
 array_map("htmlspecialchars", $_POST);
 //header("Location: users.php");
@@ -7,11 +8,19 @@ include_once("connection.php");
 switch($_POST["role"]){
     case "Pupil":
         $role=0;
+        $_SESSION["S_SchoolID"]=$_POST["school"];
+        header("Location: homepage_S.php");
         break;
     case "Teacher":
         $role=1;
+        $_SESSION["T_SchoolID"]=$_POST["school"];
+        header("Location: homepage_T.php");
         break;
 }
+
+$_SESSION["T_or_S_role"]=$_POST["role"];
+
+
 $hashed_password = password_hash($_POST["passwd"], PASSWORD_DEFAULT);
 echo($role);
 $stmt = $conn->prepare("INSERT INTO UsersTable (UserID,Name,Email,Password,TeacherOrStudent,SchoolID)

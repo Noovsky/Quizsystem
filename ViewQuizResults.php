@@ -5,7 +5,8 @@ if (!isset($_SESSION['LoggedInName']))
     $_SESSION['backURL'] = $_SERVER['REQUEST_URI'];
     header("Location:login.php");
 }
-?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,9 +17,9 @@ if (!isset($_SESSION['LoggedInName']))
 <body>
 <form action="quizzesS.php" method = "post">
 <select name = "quizid">
-<?php
+
 include_once("connection.php");
-$stmt =$conn->prepare("SELECT * FROM QuizTable ORDER BY QuizName ASC");
+$stmt =$conn->prepare("SELECT QuizID AND Score AND UserID FROM QuizUserScore WHERE T_or_S_role=0 AND T_SchoolID=S_SchoolID ");
 $stmt->execute();
 
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC))

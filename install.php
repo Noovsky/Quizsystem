@@ -5,12 +5,10 @@ CREATE TABLE QuizTable
 (QuizID INT(8) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 QuizName VARCHAR(20) NOT NULL,
 UserID VARCHAR(20) NOT NULL,
-PrivatePublic INT(1),
 NumberOfQ INT(3) NOT NULL,
 DateCreated date,
 Visitors INT(5),
-PrivatePasswd VARCHAR(200),
-QuizTopic VARCHAR(20))");
+SubjectID INT(3))");
 $stmt->execute();
 $stmt->closeCursor();
 echo("QuizTable");
@@ -53,8 +51,8 @@ CREATE TABLE GroupTable
 (GroupID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 Name VARCHAR(20) NOT NULL,
 UserID INT(7) NOT NULL,
-PrivateOrPublic BOOLEAN,
-PrivateCode VARCHAR(10))");
+SchoolID INT(5),
+SchoolName VARCHAR(20))");
 $stmt->execute();
 $stmt->closeCursor();
 
@@ -75,10 +73,18 @@ $stmt->closeCursor();
 
 $stmt =$conn->prepare("DROP TABLE IF EXISTS QuizUserScore;
 CREATE TABLE QuizUserScore
-(QuizID INT(8) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+(AttemptID INT(8) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+QuizID INT(8) NOT NULL,
 UserID INT(7) NOT NULL,
 Score INT (3) NOT NULL,
 DateOfAttemt date)");
+$stmt->execute();
+$stmt->closeCursor();
+
+$stmt =$conn->prepare("DROP TABLE IF EXISTS SchoolSubjects;
+CREATE TABLE SchoolSubjects
+(SubjectID INT(3) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+SchoolSubject VARCHAR(20))");
 $stmt->execute();
 $stmt->closeCursor();
 ?>

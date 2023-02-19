@@ -27,8 +27,13 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
         }#
         echo $backURL;
         unset($_SESSION['backURL']);
-        header('Location: ' . $backURL);
-        echo("yes");
+        if ($_SESSION["T_or_S_role"]==0){
+            header("Location: homepage_S.php");
+        }else{
+            header("Location: homepage_T.php");
+        
+                break;
+        }
     }else{
         header('Location: login.php');
         echo("no");
