@@ -1,12 +1,3 @@
-<?php
-session_start(); 
-if (!isset($_SESSION['LoggedInName']))
-{   
-    $_SESSION['backURL'] = $_SERVER['REQUEST_URI'];
-    header("Location:login.php");
-}
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,20 +6,32 @@ if (!isset($_SESSION['LoggedInName']))
 
 </head>
 <body>
-<form action="quizzesS.php" method = "post">
-<select name = "quizid">
+<?php
+session_start(); 
+if (!isset($_SESSION['LoggedInName']))
+{   
+    $_SESSION['backURL'] = $_SERVER['REQUEST_URI'];
+    header("Location:login.php");
+}
 
+?>
+
+
+<?php
 include_once("connection.php");
-$stmt =$conn->prepare("SELECT QuizID AND Score AND UserID FROM QuizUserScore WHERE T_or_S_role=0 AND T_SchoolID=S_SchoolID ");
+$stmt =$conn->prepare("SELECT * FROM QuizUserScore WHERE UserID=:loggedinuser ");
+//S_SchoolID
+$stmt->bindParam(":loggedinuser", $_SESSION["LoggedInUser"]);
+
 $stmt->execute();
 
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
 {
-    echo("<option value=".$row["QuizID"].">".$row["QuizName"]."</option>");
+    echo($row["QuizID"]."- score ".$row["Score"]." on ".$row["DateOfAttemt"]."<br>");
 }
 ?>
-</select>
-<input type="submit" value="choose quiz">
-</form>
+
+
+
 </body>
 </html>

@@ -12,6 +12,11 @@ if (!isset($_SESSION['LoggedInName']))
 <head>
 
     <title>Creating New Quiz</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 </head>
 <body>
@@ -26,11 +31,11 @@ if (!isset($_SESSION['LoggedInName']))
 <?php 
 include_once("connection.php");
 $stmt =$conn->prepare("SELECT * FROM SchoolSubjects ORDER BY SchoolSubject ASC");
-$stmt =$conn->prepare("SELECT * FROM QuizTable");
+//$stmt =$conn->prepare("SELECT * FROM QuizTable");
 $stmt->execute();
 while ($row =$stmt->fetch(PDO::FETCH_ASSOC))
 {
-    echo($row["QuizName"]."<br>");
+    //echo($row["QuizName"]."<br>");
     echo("<option value=".$row["SubjectID"].">".$row["SchoolSubject"]."</option>");
 }
 ?>

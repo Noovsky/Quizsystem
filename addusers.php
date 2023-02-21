@@ -8,18 +8,19 @@ include_once("connection.php");
 switch($_POST["role"]){
     case "Pupil":
         $role=0;
-        $_SESSION["S_SchoolID"]=$_POST["school"];
+        //$_SESSION["S_SchoolID"]=$_POST["school"];
         header("Location: homepage_S.php");
         break;
     case "Teacher":
         $role=1;
-        $_SESSION["T_SchoolID"]=$_POST["school"];
+        //$_SESSION["T_SchoolID"]=$_POST["school"];
         header("Location: homepage_T.php");
         break;
 }
 
 $_SESSION["T_or_S_role"]=$_POST["role"];
-
+$_SESSION["SchoolID"]=$_POST["school"];
+        
 
 $hashed_password = password_hash($_POST["passwd"], PASSWORD_DEFAULT);
 echo($role);

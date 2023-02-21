@@ -14,6 +14,11 @@ $_SESSION["CurrentQuiz"]=$_POST["quizid"];
 <head>
 
     <title>Solving the Quiz</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 </head>
 <body>
@@ -40,7 +45,61 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
     
 }
 ?>
+
 <input type="submit" value="NEXT">
+  </style>
+</head>
+<body>
+
+
+<div class="jumbotron">
+  <div class="container text-center">
+    <h2>The Quiz Question will be here</h2>
+    <?php
+    {
+        echo($row["Question"]."<br>");
+    }
+    ?>      
+  </div>
+</div>
+  
+<div class="container-fluid bg-3 text-center">    
+  <div class="row">
+    <div class="col-sm-1">
+    </div>
+    <div class="col-sm-4">
+      <p>Some text..</p>
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+    </div>
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-4"> 
+      <p>Some text..</p>
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+    </div>
+    <div class="col-sm-1">
+    </div>
+</div><br>
+
+<div class="container-fluid bg-3 text-center">    
+  <div class="row">
+    <div class="col-sm-1">
+    </div>
+    <div class="col-sm-4">
+      <p>Some text..</p>
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+    </div>
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-4"> 
+      <p>Some text..</p>
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+    </div>
+    <div class="col-sm-1">
+    </div>
+    
+  </div>
+</div><br><br>
 </form>
 
 </body>
