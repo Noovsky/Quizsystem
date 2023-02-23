@@ -40,9 +40,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
     echo("<input type='radio' id=".$row["QuestionID"]." name=".$row["QuestionID"]." value=2>".$row["Answer2"]."<br>");
     echo("<input type='radio' id=".$row["QuestionID"]." name=".$row["QuestionID"]." value=3>".$row["Answer3"]."<br>");
     echo("<input type='radio' id=".$row["QuestionID"]." name=".$row["QuestionID"]." value=4>".$row["Answer4"]."<br>");
-    
-    
-    
+       
 }
 ?>
 

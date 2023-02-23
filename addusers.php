@@ -18,8 +18,7 @@ switch($_POST["role"]){
         break;
 }
 
-$_SESSION["T_or_S_role"]=$_POST["role"];
-$_SESSION["SchoolID"]=$_POST["school"];
+
         
 
 $hashed_password = password_hash($_POST["passwd"], PASSWORD_DEFAULT);

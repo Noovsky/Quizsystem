@@ -2,7 +2,7 @@
 <html>
 <head>
 
-    <title>Quiz Selection</title>
+    <title>Quiz Results of the User</title>
 
 </head>
 <body>
