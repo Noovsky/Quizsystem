@@ -45,9 +45,6 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
 ?>
 
 <input type="submit" value="NEXT">
-  </style>
-</head>
-<body>
 
 
 <div class="jumbotron">
@@ -79,7 +76,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
     </div>
 </div><br>
 
-<div class="container-fluid bg-3 text-center">    
+   
   <div class="row">
     <div class="col-sm-1">
     </div>
@@ -97,7 +94,42 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
     </div>
     
   </div>
-</div><br><br>
+
+  <div class="container">
+  <div class="radio-tile-group">
+    <div class="input-container">
+      <input id="walk" class="radio-button" type="radio" name="radio" />
+      <div class="radio-tile">
+       
+        <label for="walk" class="radio-tile-label">Walk</label>
+      </div>
+    </div>
+
+    <div class="input-container">
+      <input id="bike" class="radio-button" type="radio" name="radio" />
+      <div class="radio-tile">
+        
+        <label for="bike" class="radio-tile-label">Bike</label>
+      </div>
+    </div>
+
+    <div class="input-container">
+      <input id="drive" class="radio-button" type="radio" name="radio" />
+      <div class="radio-tile">
+        
+        <label for="drive" class="radio-tile-label">Drive</label>
+      </div>
+    </div>
+
+    <div class="input-container">
+      <input id="fly" class="radio-button" type="radio" name="radio" />
+      <div class="radio-tile">
+     
+        <label for="fly" class="radio-tile-label">Fly</label>
+      </div>
+    </div>
+  </div>
+</div>
 </form>
 
 </body>
