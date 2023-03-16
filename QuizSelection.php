@@ -20,20 +20,23 @@ if (!isset($_SESSION['LoggedInName']))
 
 </head>
 <body>
+<div class="container text-center">
 <form action="quizzesS.php" method = "post">
-<select name = "quizid">
+<label class="control-label " for="Name"> Select a Quiz that you wish to attempt (typying in a letter on the keyboard</label><br><br>
+    <select class="form-control" name = "quizid"><br>
 <?php
 include_once("connection.php");
 $stmt =$conn->prepare("SELECT * FROM QuizTable ORDER BY QuizName ASC");
 $stmt->execute();
-
+$_SESSION["NameOfQuiz"]=$row["QuizName"];
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
 {
     echo("<option value=".$row["QuizID"].">".$row["QuizName"]."</option>");
 }
 ?>
 </select>
-<input type="submit" value="choose quiz">
+<br><br>
+<input type="submit" class="btn btn-danger" value="Choose Quiz">
 </form>
 </body>
 </html>

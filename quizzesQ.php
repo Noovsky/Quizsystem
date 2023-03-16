@@ -6,7 +6,7 @@ if (!isset($_SESSION['LoggedInName']))
     header("Location:login.php");
 }
 //$SESSION["quno"]=$_POST["NumberOfQuestions"];
-print_r($_SESSION["quno"]);
+//print_r($_SESSION["quno"]);
 /* include_once("connection.php");
 $stmt = $conn->prepare("SELECT * FROM QuizQuestions");
 $stmt->execute();
@@ -29,22 +29,59 @@ echo($row["QQ"]."<br>");
 
 </head>
 <body>
-<form action="addquizQ.php" method ="post">
-    Type the Question(1000 Characters Max, Spaces Included):<br>
-    <textarea id="Question" name="QQ" rows="6" cols="50"></textarea><br>
-    Type Answer 1(100 Characters Max, Spaces Included):<br>
-    <textarea id="Answer1" name="A1" rows="6" cols="50"></textarea><br>
-    Type Answer 2(100 Characters Max, Spaces Included):<br>
-    <textarea id="Answer2" name="A2" rows="6" cols="50"></textarea><br>
-    Type Answer 3(100 Characters Max, Spaces Included):<br>
-    <textarea id="Answer3" name="A3" rows="6" cols="50"></textarea><br>
-    Type Answer 4(100 Characters Max, Spaces Included):<br>
-    <textarea id="Answer4" name="A4" rows="6" cols="50"></textarea><br>
-    Type the number for the correct answer:(1,2,3 or 4)<br>
-    <input id="CorrectAns" name="CA"><br>
+<br><br>
+<div class="container text-center">
+<h1>Making Quiz Questions</h1>
+<?php
+echo("<h2>You have ".$_SESSION["quno"]." Questions left to make </h2>");
+?>
+</div>
+<br>
+<div class="container text-center">
+    <form action="addquizQ.php" method ="post">    
 
-    <input type="submit" value="Submit the Question">
-</form>
+            Type the Question(1000 Characters Max, Spaces Included):<br>
+            <textarea id="Question" name="QQ" rows="6" cols="50"></textarea><br>
 
+        <div class="row">
+            <div class="col-sm-1">
+            </div>
+            <div class="col-sm-4">
+                Type Answer 1(100 Characters Max, Spaces Included):<br>
+                <textarea id="Answer1" name="A1" rows="6" cols="50"></textarea><br>
+            </div>
+            <div class="col-sm-2">
+            </div>
+            <div class="col-sm-4">
+                Type Answer 2(100 Characters Max, Spaces Included):<br>
+                <textarea id="Answer2" name="A2" rows="6" cols="50"></textarea><br>
+            </div>
+            <div class="col-sm-1">
+            </div>
+        </div>
+
+        <div class="row">
+        <div class="col-sm-1">
+            </div>
+            <div class="col-sm-4">
+                Type Answer 3(100 Characters Max, Spaces Included):<br>
+                <textarea id="Answer3" name="A3" rows="6" cols="50"></textarea><br>
+            </div>
+            <div class="col-sm-2">
+            </div>
+            <div class="col-sm-4">
+                Type Answer 4(100 Characters Max, Spaces Included):<br>
+                <textarea id="Answer4" name="A4" rows="6" cols="50"></textarea><br>
+            </div>
+            <div class="col-sm-1">
+            </div>
+        </div><br>
+
+        <label for="quantity">Correct answer is the value between 1 and 4</label>
+        <input type="number" id="CorrectAns" name="CA" min="1" max="4"><br><br>
+
+        <input type="submit" class="btn btn-danger" value="Submit the Question">
+    </form>
+</div>
 </body>
 </html>

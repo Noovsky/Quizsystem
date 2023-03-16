@@ -2,7 +2,7 @@
 <html>
 <head>
 
-    <title>User Registration Page (Basic)</title>
+    <title>User Registration Page</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -12,6 +12,14 @@
 
 </head>
 <body>
+    <br>
+    <br>
+<div class="container text-center">
+    <h1>Account Creation</h1>
+</div>
+<br>
+    <div class="container text-center">
+        
 <div class="row">
   <div class="col-sm-3"></div>
   <div class="col-sm-6">
@@ -30,7 +38,7 @@
         </div>
 
         Choose the school that you are related to.<br>
-    <select name = "schoolid">
+    <select class="form-control" name = "schoolid">
 <?php
 include_once("connection.php");
 $stmt =$conn->prepare("SELECT * FROM SchoolTable ORDER BY SchoolName ASC");
@@ -43,7 +51,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
 ?>
  
 </select><br>
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-danger">Submit</button>
         <!-- User name:<input type="text" name="Name"><br>
         Password:<input type="password" name="Pword"><br>
             <input type="submit" value="Login"> -->
@@ -51,6 +59,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
 
   </div>
   <div class="col-sm-3"></div>
+</div>
 </div>
 </body>
 </html>

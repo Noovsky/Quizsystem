@@ -3,7 +3,7 @@ session_start();
 
 
 if ($_SESSION["quno"]==1){
-    header("Location: Users.php");
+    header("Location: homepage_S.php");
 }else{
     header("Location: quizzesQ.php");
 } 

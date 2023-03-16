@@ -21,13 +21,20 @@ if (!isset($_SESSION['LoggedInName']))
 
 </head>
 <body>
+    <br><br>
+<div class="container text-center">
 <form action="QuizCreation.php" method ="post">
-    Type Name of the Quiz(20 Characters Max, Spaces Included): <input type="text" name="QuizName"><br>
-    How many questions will there be in your quiz(You have to make the questions by yourself)
-    <input type="text" name="NumberOfQuestions"><br>
-    What subject is your Quiz related to?
-    <select name = "subject_id"><br>
-
+<div class="form-group">
+            <label class="control-label" for="Name"> Type Name of the Quiz(20 Characters Max, Spaces Included):</label>
+            <input type="text" class="form-control" placeholder="Enter Quiz Name" name="QuizName"><br><br>
+        </div>
+<div class="form-group">
+            <label class="control-label " for="Name"> How many questions will there be in your quiz(You have to make the questions by yourself)</label>
+            <input type="text" class="form-control" placeholder="Enter the Number Of Questions" name="NumberOfQuestions">
+        </div><br><br>
+    <label class="control-label " for="Name"> What subject is your Quiz related to?</label>
+    <select class="form-control" name = "subject_id"><br>
+    
 
 <?php 
 include_once("connection.php");
@@ -40,8 +47,9 @@ while ($row =$stmt->fetch(PDO::FETCH_ASSOC))
     echo("<option value=".$row["SubjectID"].">".$row["SchoolSubject"]."</option>");
 }
 ?>
-</select>
-<input type="submit" value="Create Quiz">
+</select><br><br>
+<input type="submit" class="btn btn-danger" value="Create Quiz">
+</div>
 </form>
 </body>
 </html>

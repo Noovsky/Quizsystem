@@ -11,26 +11,34 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="row">
-  <div class="col-sm-3"></div>
-  <div class="col-sm-6">
-        <form action="loginprocess.php" method= "POST">
-        <div class="form-group">
-            <label for="Name">User name:</label>
-            <input type="text" class="form-control" id="name" name="Name">
-        </div>
-        <div class="form-group">
-            <label for="pwd">Password:</label>
-            <input type="password" class="form-control" id="Pword" name="Pword">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-        <!-- User name:<input type="text" name="Name"><br>
-        Password:<input type="password" name="Pword"><br>
-            <input type="submit" value="Login"> -->
-        </form>
+    <br>
+<div class="container text-center">
+<h1>User Log In</h1>
+<h2> To get further access to the site, please enter your Username and Password</h2>
+</div>
+<br><br>
+<div class="container text-center">
+    <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+            <form action="loginprocess.php" method= "POST">
+            <div class="form-group">
+                <label for="Name">Type in your Username:</label>
+                <input type="text" class="form-control" placeholder="Enter Username" id="name" name="Name">
+            </div>
+            <div class="form-group">
+                <label for="pwd">Type in your Password:</label>
+                <input type="password" class="form-control" placeholder="Enter Password" id="Pword" name="Pword">
+            </div>
+            <button type="submit" class="btn btn-danger">Submit</button>
+            <!-- User name:<input type="text" name="Name"><br>
+            Password:<input type="password" name="Pword"><br>
+                <input type="submit" value="Login"> -->
+            </form>
 
-  </div>
-  <div class="col-sm-3"></div>
+    </div>
+    <div class="col-sm-3"></div>
+    </div>
 </div>
 </body>
 </html>

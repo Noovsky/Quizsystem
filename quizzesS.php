@@ -5,7 +5,7 @@ if (!isset($_SESSION['LoggedInName']))
     $_SESSION['backURL'] = $_SERVER['REQUEST_URI'];
     header("Location:login.php");
 }
-print_r($_POST['quizid']);
+//print_r($_POST['quizid']);
 
 $_SESSION["CurrentQuiz"]=$_POST["quizid"];
 ?>
@@ -22,11 +22,14 @@ $_SESSION["CurrentQuiz"]=$_POST["quizid"];
 <style>
   
   input[type="radio"]:checked+label{
-    background-color:blue;
+    background-color:green;
     color:white;
-    
+    border-color:green;
+   
   }
-
+.big{
+  font-size:30px;
+}
   </style>
 </head>
 <body>
@@ -42,7 +45,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
 {
     
     
-    echo($row["AnswerCorrect"]."<br>");
+    //echo($row["AnswerCorrect"]."<br>");
    
     echo('
     <div class="jumbotron">
@@ -57,16 +60,16 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
       </div>
       <div class="col-sm-4">
 
-        <input type="radio" hidden id="1" name="'.$row["QuestionID"].'" value=1/>
-        <label class="radio-inline btn btn-danger" for="1">'.$row["Answer1"].' </label>
+        <input type="radio" hidden id="'.$row["QuestionID"]."a".'" name="'.$row["QuestionID"].'" value=1>
+        <label class="big radio-inline btn btn-danger" for="'.$row["QuestionID"]."a".'">'.$row["Answer1"].' </label>
 
       </div>
       <div class="col-sm-2">
       </div>
       <div class="col-sm-4"> 
       
-      <input type="radio" hidden  id="2" name="'.$row["QuestionID"].'" value=2>
-      <label class="radio-inline btn btn-danger" for="2">'.$row["Answer2"].' </label>
+      <input type="radio" hidden  id="'.$row["QuestionID"]."b".'" name="'.$row["QuestionID"].'" value=2>
+      <label class="big radio-inline btn btn-danger" for="'.$row["QuestionID"]."b".'">'.$row["Answer2"].' </label>
       </div>
       <div class="col-sm-1">
       </div>
@@ -79,26 +82,27 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
       <div class="col-sm-4">
       
     
-      <input type="radio" hidden id="3" name="'.$row["QuestionID"].'" value=3>
-      <label class="radio-inline btn btn-danger" for="3">'.$row["Answer3"].' </label>
+      <input type="radio" hidden id="'.$row["QuestionID"]."c".'" name="'.$row["QuestionID"].'" value=3>
+      <label class="big radio-inline btn btn-danger" for="'.$row["QuestionID"]."c".'">'.$row["Answer3"].' </label>
       
       </div>
       <div class="col-sm-2">
       </div>
       <div class="col-sm-4"> 
    
-      <input type="radio" hidden id="4" name="'.$row["QuestionID"].'" value=4>
-      <label class="radio-inline btn btn-danger" for="4">'.$row["Answer4"].' </label>
+      <input type="radio" hidden id="'.$row["QuestionID"]."d".'" name="'.$row["QuestionID"].'" value=4>
+      <label class="big radio-inline btn btn-danger" for="'.$row["QuestionID"]."d".'">'.$row["Answer4"].' </label>
       </div>
       <div class="col-sm-1">
       </div>
       
     </div> 
+    <br>
     ');
 }
 ?>
 
-<input type="submit" value="NEXT">
+<input type="submit" class="btn btn-danger" value="NEXT">
 
 
 </form>
