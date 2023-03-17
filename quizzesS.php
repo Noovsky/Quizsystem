@@ -33,10 +33,21 @@ $_SESSION["CurrentQuiz"]=$_POST["quizid"];
   </style>
 </head>
 <body>
+<?php
+include_once("connection.php");
+$stmt =$conn->prepare("SELECT QuizName FROM quiztable WHERE QuizID= :quid");
+$stmt->bindParam(":quid", $_POST["quizid"]); 
+$stmt->execute();
+
+while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+{
+$_SESSION["NameOfQuiz"]=$row["QuizName"];
+}
+?>
 <form action="QuizResults.php" method ="POST">
 
     <?php
-include_once("connection.php");
+
 $stmt =$conn->prepare("SELECT * FROM QuizQuestions WHERE QuizID= :quid");
 $stmt->bindParam(":quid", $_POST["quizid"]); 
 $stmt->execute();

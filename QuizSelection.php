@@ -28,7 +28,7 @@ if (!isset($_SESSION['LoggedInName']))
 include_once("connection.php");
 $stmt =$conn->prepare("SELECT * FROM QuizTable ORDER BY QuizName ASC");
 $stmt->execute();
-$_SESSION["NameOfQuiz"]=$row["QuizName"];
+
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
 {
     echo("<option value=".$row["QuizID"].">".$row["QuizName"]."</option>");

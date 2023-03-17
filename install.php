@@ -3,7 +3,7 @@ include_once("connection.php");
 $stmt =$conn->prepare("DROP TABLE IF EXISTS QuizTable;
 CREATE TABLE QuizTable
 (QuizID INT(8) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-QuizName VARCHAR(20) NOT NULL,
+QuizName VARCHAR(30) NOT NULL,
 UserID VARCHAR(20) NOT NULL,
 NumberOfQ INT(3) NOT NULL,
 DateCreated date,
