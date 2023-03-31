@@ -1,4 +1,7 @@
 <?php
+// this page is not seen by the public
+// only the administartor can get access to this page
+// in the future I will consider moving this page to the teacher homepage
 session_start(); 
 if (!isset($_SESSION['LoggedInName']))
 {   

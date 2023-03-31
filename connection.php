@@ -1,8 +1,8 @@
 <?php
-//array_map("htmlspecialchars", $_POST);
+// holds the database data
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "";// having a default password is dangerous, will be changed in the future
 $dbname = "quizsystem";
 
 try {

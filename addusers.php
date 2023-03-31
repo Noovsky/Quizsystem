@@ -2,7 +2,7 @@
 session_start(); 
 try{
 array_map("htmlspecialchars", $_POST);
-//header("Location: users.php");
+
 print_r($_POST);
 include_once("connection.php");
 // switch($_POST["role"]){
@@ -17,9 +17,13 @@ include_once("connection.php");
 //         header("Location: homepage_T.php");
 //         break;
 // }
+
+// above in green is the code used to take the user to a homepage depending on if they are a teacher or a student
+// may be brought back in future updates
 header("Location: homepage_S.php");
-$student = 0;
+$student = 0;// for now, all users are set as students
 $hashed_password = password_hash($_POST["passwd"], PASSWORD_DEFAULT);
+//this hashes the password, and thus protects the accounts of the users
 echo($role);
 $stmt = $conn->prepare("INSERT INTO UsersTable (UserID,Name,Email,Password,TeacherOrStudent,SchoolID)
 VALUES(null,:Username,:email,:password,:role,:school)");

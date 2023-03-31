@@ -1,4 +1,6 @@
 <?php
+// this weboage is not currently used for anything
+// it may be used in the future, as a homepage for teachers to create quizzes and view student results
 session_start(); 
 if (!isset($_SESSION['LoggedInName']))
 {   

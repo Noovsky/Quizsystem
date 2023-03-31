@@ -1,4 +1,7 @@
+
 <?php
+// the admin page does not currenty hold any use
+// in the future will be used to remove users and quizzes etc
 session_start(); 
 if (!isset($_SESSION['LoggedInName']))
 {   

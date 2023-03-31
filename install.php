@@ -1,4 +1,8 @@
 <?php
+// This is the Install page
+//This page has all the tables that the database uses
+//If this page is run, It will create the tables in the database again
+//WARNING, RUNNING THIS PAGE WILL ERASE ALL THE TABLE CONTENTS
 include_once("connection.php");
 $stmt =$conn->prepare("DROP TABLE IF EXISTS QuizTable;
 CREATE TABLE QuizTable

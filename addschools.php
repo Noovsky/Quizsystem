@@ -8,7 +8,7 @@ include_once("connection.php");
 
 $stmt = $conn->prepare("INSERT INTO SchoolTable (SchoolID,SchoolName)
 VALUES (null,:Sn)");
-
+// inserts collected data into the database
 $stmt->bindParam(":Sn", $_POST["SchoolName"]);
 $stmt->execute();
 }

@@ -2,20 +2,25 @@ body{
     background:url(pic.png) no-repeat;
     background-size: cover;
     width: 100vw;
+    /* css responsible for the background picture */
     
 }
 .container{
   background-color: rgba(238, 238, 238, 0.6);
   padding:30px 30px 30px 30px; 
+  /* sets the padding and the colour of all containers, which use this */
 }
 .bg-black {
     background: none;
+    /* removes the background */
 }
 h1{
   color:rgb(7, 7, 7);
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size:600%;
+  /* sets the way, that the words that use the "h1" format look like */
 }
 .lessopaque{
   background-color: rgba(238, 238, 238, 0.8);
 }
+/* sets the background colour */
